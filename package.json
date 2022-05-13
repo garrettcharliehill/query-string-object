@@ -1,24 +1,20 @@
 {
-  "name": "query-string-object",
-  "version": "0.2.5",
+  "name": "@garrettcharliehill/query-string-object",
+  "version": "0.0.2",
   "desciption": "support object or array like what's php did: ?a[a]=1&a[b]=2 -> a={a:1,b:2}",
   "keywords": "querystring, object, array, php, query, extend, string, rest, restful",
-  "homepage": "https://github.com/ericdum/querystring/",
-  "bugs": "https://github.com/ericdum/querystring/issues",
-  "author": "木酱 <lichen.dlc@alibaba-inc.com> (http://mujiang.info/)",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ericdum/querystring"
-  },
+  "author": "Charlie Hill",
   "scripts": {
     "test": "./node_modules/.bin/mocha --reporter tap test.js"
   },
   "devDependencies": {
-    "mocha": "*",
-    "expect.js": "*"
+    "expect.js": "*",
+    "mocha": "*"
   },
   "dependencies": {
+    "buffer": "^6.0.3",
     "lodash": "~3.8.0",
-    "querystring-browser": "^1.0.4"
-  }
+    "querystring-es3": "^0.2.1"
+  },
+  "license": "ISC"
 }
