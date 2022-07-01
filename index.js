@@ -1,4 +1,4 @@
-var native_qs = require("querystring-es3");
+var native_qs = require("querystring-browser");
 var _ = require('lodash');
 
 module.exports = function(query) {
@@ -43,7 +43,7 @@ module.exports.stringify = function(obj) {
         result.push(stringifyArray(key, val));
       } else if (_.isObject(val)) {
         result.push(stringifyObject(key, val));
-      } else if (val) {
+      } else if (val || typeof val === 'boolean') {
         result.push(key+'='+native_qs.escape(val));
       }
     });
@@ -63,7 +63,7 @@ function stringifyObject (key, obj) {
       result.push(stringifyArray(key2, val));
     } else if (_.isObject(val)) {
       result.push(stringifyObject(key2, val));
-    } else if (val) {
+    } else if (val || typeof val === 'boolean') {
       result.push(key2+'='+val);
     }
   });
@@ -77,7 +77,7 @@ function stringifyArray (key, obj) {
     if (_.isObject(val)) {
       // not allow any object in an array
       throw new Error('Not Allow Any Object In An Array:'+key+'='+JSON.stringify(obj));
-    } else if (val) {
+    } else if (val || typeof val === 'boolean') {
       result.push(key+'[]=' + val);
     }
   });
